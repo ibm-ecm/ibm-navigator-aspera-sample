@@ -1,0 +1,22 @@
+{
+    "messages": [{
+        "number": "0",
+        "adminResponse": null,
+        "moreInformation": null,
+        "text": "The package test is being sent.",
+        "explanation": null,
+        "userResponse": null
+    }],
+    "pkg": {
+        "note": "",
+        "size": 11274256,
+        "sender": "sender",
+        "recipients": "recipients",
+        "lastEvent": "Rate modification",
+        "progress": {},
+        "id": "16749f52-9f42-4d95-8998-2f9c5579fcda",
+        "updatedOn": "2017-10-16T16:23:02.706Z",
+        "title": "test",
+        "status": "STARTED"
+    }
+}

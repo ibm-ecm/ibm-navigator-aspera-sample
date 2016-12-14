@@ -1,0 +1,74 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2017
+ * US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.ecm .ecmAsperaSendDialog.ecmBaseDialog.dijitDialog {
+    width: 60%;
+}
+
+.ecm .ecmAsperaSendDialog.ecmBaseDialog.fullscreen .dijitDialogPaneContent,
+.ecm .ecmAsperaSendDialog.ecmBaseDialog .dijitDialogPaneContent .dijitDialogPaneContentArea {
+    padding: 0;
+    overflow-y: auto !important;
+}
+
+.ecm .ecmAsperaSendDialog .dijitTitlePane .dijitTitlePaneTitle {
+	border: none;
+}
+
+.ecm .ecmAsperaSendDialog .dijitTitlePaneContentInner {
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.ecm .ecmAsperaSendDialog .field {
+    border-bottom: 1px solid #E3E4E6;
+    padding: 10px 15px;
+}
+
+.ecm .ecmAsperaSendDialog .sendMessage {
+	padding: 15px;
+	background-color: #EFEFF1;
+	margin-bottom: 15px;
+}
+
+.ecm .ecmAsperaSendDialog .textField .dijitTextBox {
+	border: none;
+	width: 300px;
+}
+
+.ecm .ecmAsperaSendDialog .textField .dijitTextArea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.ecm .ecmAsperaSendDialog .toBeSupported {
+	display: none;
+}
+
+.ecm .ecmAsperaConfiguration .asperaServerUrlWarning .dijitValidationContainer {
+	background-position: -20px -1px;
+	background-color: #FFF3F3;
+	background-image: url('../../../ecm/widget/resources/images/msgIcons_24bit.png');
+	border: none;
+	border-left-width: 0px;
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+	margin-right: 3px;
+	display: inline;
+}
+
+.dijitRtl .ecm .ecmAsperaConfiguration .asperaServerUrlWarning .dijitValidationContainer  {
+	margin-left: 3px;
+}
+
+.ecm .ecmAsperaConfiguration .asperaServerUrlWarning .dijitValidationIcon {
+	width: 0;
+	background-color: transparent !important;
+}

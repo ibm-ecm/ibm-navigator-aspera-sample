@@ -1,0 +1,46 @@
+<div
+	><div class="inlineMessage inlineMessageInfo"
+		><div class="messageIcon"
+		></div
+		><div class="messageText" role="alert"
+		>${messages.configuration_pane_speed_info}</div
+	></div
+	><table class="propertyTable ecmAsperaConfiguration" role="presentation"
+	><tr
+		><td class="propertyRowLabel"
+			><span class="required">*</span>&nbsp;<label for="${id}_asperaServerUrl">${messages.configuration_pane_aspera_url}</label
+			>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.configuration_pane_aspera_url_hover}</div
+		></td
+		><td class="propertyRowValue asperaServerUrl"
+			><input data-dojo-attach-point="asperaServerUrl" data-dojo-type="ecm/widget/ValidationTextBox" data-dojo-props="id: '${id}_asperaServerUrl', required: true, trim: true, propercase: false, maxLength: 1024, promptMessage: '${messages.configuration_pane_aspera_url_prompt}'" data-dojo-attach-event="onKeyUp: _onParamChange"
+		/></td
+	></tr
+	><tr
+		><td class="propertyRowLabel"
+			><span class="required">*</span>&nbsp;<label for="${id}_maxNumberOfItems">${messages.configuration_pane_max_docs_to_send}</label
+			>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.configuration_pane_max_docs_to_send_hover}</div
+		></td
+		><td class="propertyRowValue"
+			><input data-dojo-attach-point="maxNumberOfItems" data-dojo-attach-event="onChange: _onParamChange" data-dojo-type="ecm/widget/NumberSpinner" data-dojo-props="id: '${id}_maxNumberOfItems', required: true, constraints: {min: 1, places: 0}, value: 50"
+		/></td
+	></tr
+	><tr
+		><td class="propertyRowLabel"
+			><span class="required">*</span>&nbsp;<label for="${id}_maxNumberOfRequests">${messages.configuration_pane_max_procs_to_send}</label
+			>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.configuration_pane_max_procs_to_send_hover}</div
+		></td
+		><td class="propertyRowValue"
+			><input data-dojo-attach-point="maxNumberOfRequests" data-dojo-attach-event="onChange: _onParamChange" data-dojo-type="ecm/widget/NumberSpinner" data-dojo-props="id: '${id}_maxNumberOfRequests', required: true, constraints: {min: 1, places: 0}, value: 5"
+		/></td
+	></tr
+	><tr
+		><td class="propertyRowLabel"
+			><span class="required">*</span>&nbsp;<label for="${id}_targetTransferRateMbps">${messages.configuration_pane_target_transfer_rate}</label
+			>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.configuration_pane_target_transfer_rate_hover}</div
+		></td
+		><td class="propertyRowValue"
+			><input data-dojo-attach-point="targetTransferRateMbps" data-dojo-attach-event="onChange: _onParamChange" data-dojo-type="ecm/widget/NumberSpinner" data-dojo-props="id: '${id}_targetTransferRateMbps', required: true, constraints: {min: 1, places: 0}, value: 100"
+		/></td
+	></tr
+	></table
+></div>
