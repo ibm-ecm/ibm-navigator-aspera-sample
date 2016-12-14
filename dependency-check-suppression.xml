@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+	<suppress>
+		<notes><![CDATA[
+			ssleay32.dll uses the OpenSSL Shared Library version 1.0.2.11
+		]]></notes>
+		<cve>CVE-1999-0428</cve>
+	</suppress>
+	<suppress>
+		<notes><![CDATA[
+			N/A
+		]]></notes>
+		<cpe>cpe:/a:apple:java:1.4</cpe>
+	</suppress>
+</suppressions>

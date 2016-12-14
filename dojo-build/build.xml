@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project name="aspera-plugin" default="dojo-build" basedir="..">
+	<property file="dojo-build/build.properties" />
+
+	<property name="dir.web" value="src/main/resources/com/ibm/ecm/extension/aspera/WebContent" />
+	<property name="dir.target" value="target" />
+	<property name="dir.target.build" value="target/dojoBuild" />
+	<property name="dir.target.web" value="target/classes/com/ibm/ecm/extension/aspera/WebContent" />
+
+	<target name="init">
+		<mkdir dir="${dir.target}" />
+		<mkdir dir="${dir.target.build}" />
+	</target>
+
+	<target name="dojo-build" depends="prepare-dojo-build">
+		<copy todir="${dir.target.build}/aspera" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.web}/aspera">
+				<include name="**/*" />
+				<exclude name="test/**" />
+				<exclude name="**/*.jgz" />
+				<exclude name="nls/AsperaPlugin_*.js"/>
+			</fileset>
+			<fileset dir="${dir.web}">
+				<include name="AsperaPlugin.js" />
+			</fileset>
+			<fileset dir="${basedir}">
+				<include name="dojo-build/aspera-plugin.profile.js" />
+			</fileset>
+		</copy>
+
+		<java dir="${dir.target.build}/util/buildscripts" fork="true" classname="org.mozilla.javascript.tools.shell.Main" failonerror="true">
+			<classpath path="${dir.target.build}/util/shrinksafe/js.jar;${dir.target.build}/util/shrinksafe/shrinksafe.jar" />
+			<arg line="${basedir}/${dir.target.build}/dojo/dojo.js --release" />
+			<arg value="baseUrl=${basedir}/${dir.target.build}/dojo" />
+			<arg value="profile=${basedir}/dojo-build/aspera-plugin.profile.js" />
+			<arg value="load=build" />
+		</java>
+
+		<gzip src="${dir.target.build}/release/aspera/AsperaPlugin.js" destfile="${dir.target.web}/AsperaPlugin.js.jgz" />
+		<gzip src="${dir.web}/AsperaPlugin.css" destfile="${dir.target.web}/AsperaPlugin.css.jgz" />
+		<copy todir="${dir.target.web}/aspera/nls" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.target.build}/release/aspera/nls">
+				<include name="AsperaPlugin_*"/>
+				<exclude name="*.uncompressed.js" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="prepare-dojo-build" depends="init">
+		<unzip dest="${dir.target.build}" src="${file.dojo.src.archive}" />
+		<copy todir="${dir.target.build}/ecm" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.icn.web}/ecm">
+				<include name="**/*" />
+				<exclude name="**/tests/" />
+				<exclude name="nls/ecm_*.jgz" />
+				<exclude name="**/FormSigningContainer.js" />
+				<exclude name="**/DocumentFormContainer.js" />
+				<exclude name="**/TeamspaceTabPane.js" />
+				<exclude name="**/PropertiesControllerRuntime.js" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.target.build}/pvr" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.icn.web}/pvr">
+				<include name="**/*" />
+				<exclude name="tests/**" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.target.build}/pvd" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.icn.web}/pvd">
+				<include name="**/*" />
+				<exclude name="tests/**" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.target.build}/gridx" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.icn.web}/gridx">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.target.build}/idx" preservelastmodified="yes" verbose="no">
+			<fileset dir="${dir.icn.web}/idx">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+</project>

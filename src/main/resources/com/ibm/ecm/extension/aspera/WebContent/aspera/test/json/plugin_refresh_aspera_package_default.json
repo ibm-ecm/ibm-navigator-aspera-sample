@@ -1,0 +1,23 @@
+{
+    "pkg": {
+        "note": "",
+        "size": 47574289,
+        "sender": "sender",
+        "recipients": "recipients",
+        "lastEvent": "Progress",
+        "progress": {
+            "bytesWritten": 12320768,
+            "targetRate": 10000,
+            "package": "test",
+            "file": "test.pdf",
+            "bytesTransferred": 12320768,
+            "rate": "80.9 Mb\/s",
+            "secondsElapsed": 11,
+            "minTargetRate": 0
+        },
+        "id": "a7cfc622-2745-4f6c-af3a-70223bb3cbde",
+        "updatedOn": "2017-10-22T03:07:20.515Z",
+        "title": "test",
+        "status": "STARTED"
+    }
+}

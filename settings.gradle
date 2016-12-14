@@ -1,0 +1,3 @@
+include 'dojo-build'
+
+rootProject.name = 'aspera-plugin'

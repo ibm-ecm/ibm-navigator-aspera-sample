@@ -1,0 +1,93 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2017
+ * US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+define({
+		// NLS_CHARSET=UTF-8
+
+		// configuration
+		configuration_pane_aspera_url: "IBM Aspera 伺服器 URL",
+		configuration_pane_aspera_url_hover: "輸入 IBM Aspera 伺服器的 URL。例如：https://host_name:port_number/aspera/faspex",
+		configuration_pane_aspera_url_prompt: "強烈建議使用 HTTPS 通訊寫定。",
+		configuration_pane_max_docs_to_send: "要傳送的項目數上限",
+		configuration_pane_max_docs_to_send_hover: "指定使用者一次可以傳送的項目數上限。",
+		configuration_pane_max_procs_to_send: "並行要求數目上限",
+		configuration_pane_max_procs_to_send_hover: "指定可以同時執行的要求數目上限。",
+		configuration_pane_speed_info: "如需可以如何改善傳送速度的詳細資料，請聯絡 IBM Aspera 支援中心。",
+
+		// runtime
+		send_dialog_sender_title: "寄件者：${0}",
+		send_dialog_not_set: "未設定",
+		send_dialog_send_one: "傳送 '${0}'。",
+		send_dialog_send_more: "傳送 ${0} 個檔案。",
+		send_dialog_sender: "使用者名稱：",
+		send_dialog_password: "密碼：",
+		send_dialog_missing_sender_message: "您必須輸入使用者名稱，才能登入 IBM Aspera 伺服器。",
+		send_dialog_missing_password_message: "您必須輸入密碼，才能登入 IBM Aspera 伺服器。",
+		send_dialog_title: "傳送至 IBM Aspera",
+		send_dialog_missing_title_message: "您必須輸入標題。",
+		send_dialog_info: "傳送檔案至 IBM Aspera 伺服器，然後通知使用者檔案已可供下載。",
+		send_dialog_recipients_label: "收件者：",
+		send_dialog_recipients_textfield_hover_help: "使用逗點來區隔電子郵件位址及/或使用者名稱。例如，輸入 'address1, address2, username1, username2'。",
+		send_dialog_missing_recipients_message: "您必須指定至少一個電子郵件位址或使用者名稱。",
+		send_dialog_title_label: "標題：",
+		send_dialog_note_label: "新增訊息。",
+		send_dialog_earPassphrase_label: "加密密碼：",
+		send_dialog_earPassphrase_textfield_hover_help: "輸入密碼以加密伺服器上的檔案。隨後，收件者將需要在下載受保護的檔案時，輸入密碼來解密這些檔案。",
+		send_dialog_notify_title: "通知：${0}",
+		send_dialog_notifyOnUpload_label: "上傳檔案時，請通知我",
+		send_dialog_notifyOnDownload_label: "下載檔案時，請通知我",
+		send_dialog_notifyOnUploadDownload: "上傳及下載檔案時，請通知我",
+		send_dialog_send_button_label: "傳送",
+		send_dialog_started: "套件 ${0} 正在傳送至 IBM Aspera 伺服器。",
+		status_started: "套件狀態：${0} - 進行中 (${1}%)",
+		status_stopped: "套件狀態：${0} - 已停止",
+		status_failed: "套件狀態：${0} - 已失敗",
+		status_completed: "套件狀態：${0} - 已完成",
+
+		// error
+		send_dialog_too_many_items_error: "傳送無法項目。",
+		send_dialog_too_many_items_error_explanation: "您一次最多可傳送 ${0} 個項目。您正在嘗試傳送 ${1} 個項目。",
+		send_dialog_too_many_items_error_userResponse: "請選取比較少的項目，然後嘗試再次傳送項目。您也可以聯絡系統管理者，以增加您一次可傳送的項目數上限。",
+		send_dialog_too_many_items_error_0: "項目數上限",
+		send_dialog_too_many_items_error_1: "項目數",
+		send_dialog_too_many_items_error_number: 5050,
+//,
+//"ar": true,
+//"bg": true,
+//"ca": true,
+//"cs": true,
+//"da": true,
+//"de": true,
+//"el": true,
+//"es": true,
+//"fi": true,
+//"fr": true,
+//"he": true,
+//"hr": true,
+//"hu": true,
+//"it": true,
+//"iw": true,
+//"ja": true,
+//"kk": true,
+//"ko": true,
+//"nb-no": true,
+//"nl": true,
+//"no": true,
+//"pl": true,
+//"pt": true,
+//"pt-br": true,
+//"ru": true,
+//"sk": true,
+//"sl": true,
+//"sv": true,
+//"th": true,
+//"tr": true,
+//"zh": true,
+//"zh-tw": true,
+//"ro": true,
+//"vi": true
+});
+

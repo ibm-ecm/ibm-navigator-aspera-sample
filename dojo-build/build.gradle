@@ -1,0 +1,114 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.util.zip.GZIPOutputStream
+
+ext {
+	webDir = "$rootDir/src/main/resources/com/ibm/ecm/extension/aspera/WebContent"
+	dojoBuildDir = "$rootProject.buildDir/dojoBuild"
+	webBuildDir = "$rootProject.buildDir/resources/main/com/ibm/ecm/extension/aspera/WebContent"
+}
+
+task init {
+	doLast {
+		File dir = file(dojoBuildDir)
+		dir.mkdirs()
+	}
+}
+
+task unzipDojo(dependsOn: 'init', type: Copy) {
+	from zipTree(file("$projectDir/$dojoSrcArchive"))
+	into dojoBuildDir
+}
+
+task copyFiles(dependsOn: 'unzipDojo') {
+	doLast {
+		copy {
+			from "$projectDir/$icnWebDir/ecm"
+			into "$dojoBuildDir/ecm"
+			include '**/*'
+			exclude '**/tests/'
+			exclude 'nls/ecm_*.jgz'
+			exclude '**/FormSigningContainer.js'
+			exclude '**/DocumentFormContainer.js'
+			exclude '**/TeamspaceTabPane.js'
+			exclude '**/PropertiesControllerRuntime.js'
+		}
+
+		copy {
+			from "$projectDir/$icnWebDir/pvr"
+			into "$dojoBuildDir/pvr"
+			include '**/*'
+			exclude 'tests/**'
+		}
+
+		copy {
+			from "$projectDir/$icnWebDir/pvd"
+			into "$dojoBuildDir/pvd"
+			include '**/*'
+			exclude 'tests/**'
+		}
+
+		copy {
+			from "$projectDir/$icnWebDir/gridx"
+			into "$dojoBuildDir/gridx"
+			include '**/*'
+		}
+
+		copy {
+			from "$projectDir/$icnWebDir/idx"
+			into "$dojoBuildDir/idx"
+			include '**/*'
+		}
+
+		copy {
+			from "$webDir/aspera"
+			into "$dojoBuildDir/aspera"
+			include '**/*'
+			exclude 'test/**'
+			exclude '**/*.jgz'
+			exclude 'nls/AsperaPlugin_*.js'
+		}
+
+		copy {
+			from "$webDir/AsperaPlugin.js"
+			into "$dojoBuildDir/aspera"
+		}
+
+		copy {
+			from projectDir
+			into "$dojoBuildDir/aspera"
+			include "$projectDir/aspera-plugin.profile.js"
+		}
+	}
+}
+
+task shrinkFiles(dependsOn: 'copyFiles', type: JavaExec) {
+	main = 'org.mozilla.javascript.tools.shell.Main'
+	classpath = files("$dojoBuildDir/util/shrinksafe/js.jar", "$dojoBuildDir/util/shrinksafe/shrinksafe.jar")
+	args "$dojoBuildDir/dojo/dojo.js", '--release', "baseUrl=$dojoBuildDir/dojo", "profile=$projectDir/aspera-plugin.profile.js", 'load=build'
+}
+
+task gzipFiles(dependsOn: 'shrinkFiles') {
+	doLast {
+		gzipFile("$dojoBuildDir/release/aspera", 'AsperaPlugin.js')
+		gzipFile(webDir, 'AsperaPlugin.css')
+	}
+}
+
+def gzipFile(sourcePath, sourceFile) {
+	GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream("$webBuildDir/$sourceFile" + ".jgz"))
+	Files.copy(Paths.get("$sourcePath/$sourceFile"), gos)
+	gos.close()
+}
+
+task buildDojo(dependsOn: 'gzipFiles') {
+	doLast {
+		copy {
+			from "$dojoBuildDir/release/aspera/nls"
+			into "$webBuildDir/aspera/nls"
+			include 'AsperaPlugin_*'
+			exclude '*.uncompressed.js'
+		}
+	}
+}
+

@@ -1,0 +1,41 @@
+<div
+	><div class="sendMessage" role="alert" data-dojo-attach-point="sendMessageNode"
+	></div
+	><div data-dojo-type="dijit/TitlePane" collapsible=true data-dojo-attach-point="_userPane" title=""
+		><div class="field textField"
+			><label for="${id}_sender">${messages.send_dialog_sender}</label
+			> <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="value: '', trim: true, required: true, missingMessage: '${messages.send_dialog_missing_sender_message}'" " data-dojo-attach-point="sender" name="${id}_sender" id="${id}_sender" type="text" data-dojo-attach-event="onKeyUp: isSendEnabled"
+		/></div
+		><div class="field textField"
+			><label for="${id}_password">${messages.send_dialog_password}</label
+			> <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="value: '', trim: true, required: true, missingMessage: '${messages.send_dialog_missing_password_message}'" data-dojo-attach-point="password" name="${id}_password" id="${id}_password" type="password" data-dojo-attach-event="onKeyUp: isSendEnabled"
+		/></div
+	></div
+	><div class="field textField"
+		><label for="${id}_recipients">${messages.send_dialog_recipients_label}</label
+		>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.send_dialog_recipients_textfield_hover_help}</div
+		> <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="value: '', trim: true, required: true, missingMessage: '${messages.send_dialog_missing_recipients_message}', maxLength: 64000" data-dojo-attach-point="recipients" name="${id}_recipients" id="${id}_recipients" type="text" data-dojo-attach-event="onKeyUp: isSendEnabled"
+	/></div
+	><div class="field textField"
+		><label for="${id}_title">${messages.send_dialog_title_label}</label
+		> <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="value: '', trim: true, required: true, maxLength: 241" data-dojo-attach-point="title" name="${id}_title" id="${id}_title" type="text" data-dojo-attach-event="onKeyUp: isSendEnabled"
+	/></div
+	><div class="field textField"
+		><textarea data-dojo-type="dijit/form/SimpleTextarea" data-dojo-props="required: false, intermediateChanges: true, placeholder: '${messages.send_dialog_note_label}'" data-dojo-attach-point="note" name="${id}_note" id="${id}_note"></textarea
+	></div
+	><div class="field textField toBeSupported"
+		><label for="${id}_earPassphrase">${messages.send_dialog_earPassphrase_label}</label
+		>&nbsp;<div data-dojo-type="ecm/widget/HoverHelp">${messages.send_dialog_earPassphrase_textfield_hover_help}</div
+		> <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="value: ''" data-dojo-attach-point="earPassphrase" name="${id}_earPassphrase" id="${id}_earPassphrase" type="password"
+	/></div
+	><div data-dojo-type="dijit/TitlePane" collapsible=true data-dojo-attach-point="_notificationPane" title=""
+		><div class="field"
+			><input data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="notifyOnUpload" name="${id}_notifyOnUpload" id="${id}_notifyOnUpload" type="checkbox"
+			/>&nbsp;<label for="${id}_notifyOnUpload">${messages.send_dialog_notifyOnUpload_label}</label
+		></div
+		><div class="field"
+			><input data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="notifyOnDownload" name="${id}_notifyOnDownload" id="${id}_notifyOnDownload" type="checkbox"
+			/>&nbsp;<label for="${id}_notifyOnDownload">${messages.send_dialog_notifyOnDownload_label}</label
+		></div
+	</div
+></div>

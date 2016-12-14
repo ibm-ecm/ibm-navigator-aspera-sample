@@ -1,0 +1,8 @@
+lib/icn
+target
+out
+.gradle
+.idea
+*.iml
+.eslintrc.js
+.DS_Store

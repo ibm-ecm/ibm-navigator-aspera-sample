@@ -1,0 +1,10 @@
+{
+	"errors": [{
+		"userResponse": "Verify the sender and recipients are entered correctly and send the file(s) again. If the problem persists, ask your system administrator to review the web application server error logs.",
+		"text": "The file(s) cannot be sent.",
+		"moreInformation": null,
+		"explanation": "An error occurred when the file(s) were sent.",
+		"number": "5001",
+		"adminResponse": null
+	}]
+}

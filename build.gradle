@@ -1,0 +1,94 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+buildDir = 'target'
+group = 'com.ibm.ecm.extension'
+version = '3.0.2-sample-1.0'
+description = """Aspera plug-in"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+findbugs {
+	sourceSets = [ sourceSets.main ]
+	effort = 'max'
+	reportLevel = 'low'
+}
+
+tasks.withType(FindBugs) {
+	reports {
+		xml.enabled false
+		html.enabled true
+	}
+}
+
+pmd {
+	sourceSets = [ sourceSets.main ]
+	ruleSetFiles = files("${projectDir}/pmd-ruleset.xml")
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version:'4.12'
+	testCompile group: 'org.mockito', name: 'mockito-core', version:'1.9.5'
+	compile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
+	compile group: 'commons-configuration', name: 'commons-configuration', version:'1.10'
+	compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
+	compile files("${projectDir}/lib/icn/navigatorAPI.jar")
+	compile files("${projectDir}/lib/icn/Jace.jar")
+	compile files("${projectDir}/lib/faspex/faspex-client-lite-1.0.2.jar")
+	compile files("${projectDir}/lib/faspex/faspmanager-3.7.2.2-20171018.171314-4.jar")
+	compile files("${projectDir}/lib/faspex/gson-2.7.jar")
+	compile files("${projectDir}/lib/faspex/json-20160810.jar")
+}
+
+jar {
+	dependsOn ':dojo-build:buildDojo'
+	dependsOn 'extractFaspexLibs'
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from "$buildDir/faspex"
+	manifest {
+		 attributes 'Implementation-Title': description,
+		 'Implementation-Version': version,
+		 'Plugin-Class': project.group + '.aspera.AsperaPlugin'
+	}
+}
+
+task extractFaspexLibs(type: Copy) {
+	fileTree(dir: "$projectDir/lib/faspex").include('**/*.jar').each {File lib ->
+		from zipTree("$projectDir/lib/faspex/${lib.name}")
+		into "$buildDir/faspex"
+	}
+}
+
+task copyResourcesToClasses(type: Copy) {
+	dependsOn 'compileJava'
+	from sourceSets.main.resources.srcDirs
+	into sourceSets.main.output.classesDirs.singleFile
+}
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.owasp:dependency-check-gradle:3.0.2'
+	}
+}
+apply plugin: 'org.owasp.dependencycheck'
+
+check.dependsOn dependencyCheckAnalyze
+
+dependencyCheck {
+	failBuildOnCVSS = 4
+	suppressionFile = "$projectDir/dependency-check-suppression.xml"
+}
