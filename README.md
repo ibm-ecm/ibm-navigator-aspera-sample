@@ -1,7 +1,7 @@
 # Aspera plug-in
 
-Aspera Faspex provides an efficient way to send files from anywhere in the world.
-This plug-in demonstrates the use of Aspera Faspex from within IBM Content Navigator.
+Aspera Faspex provides an efficient way to send files anywhere in the world.
+This plug-in demonstrates the use of Aspera Faspex with IBM Content Navigator (ICN).
 
 ## Getting started
 
@@ -33,7 +33,7 @@ Use these instructions to help you get the plug-in up and running in IBM Content
 ## Installing the plug-in
 
 1. Register and configure the [plug-in](https://github.com/ibm-ecm/ibm-navigator-aspera-sample/blob/master/aspera-plugin-3.0.2-sample-1.0.jar) in ICN.
-2. Add the **Send via IBM Aspera** menu action to document context menus of the desktop.
+2. Add the **Send via IBM Aspera** menu action to the document context menus of the desktop.
 
 Note: A valid SSL/HTTPS certificate is needed to connect to the Aspera server. For debugging/development purposes, an environment variable named ICNAPCertValidationOff with the value of true can be added to disable the validation.
 
@@ -43,7 +43,7 @@ ICN server debug logs can be enabled by setting the application-level logging to
 
 ICN client debug logs can be enabled by adding the logLevel parameter with the value of 4 (Debug) to the URL of ICN, [http://localhost:9080/navigator/?logLevel=4](http://localhost:9080/navigator/?logLevel=4). 
 
-Aspera log files can be located in the directory that contains Aspera files. The path to the Aspera files can be found from ICN server debug logs.
+Aspera log files are located in the directory that contains Aspera files. The path to the Aspera files can be found in the ICN server debug logs.
 
 CIWEB.aspera Debug: ... com.ibm.ecm.extension.aspera.AsperaPlugin.applicationInit() created folder structure for resources: /tmp/aspera-plugin-resources
 
