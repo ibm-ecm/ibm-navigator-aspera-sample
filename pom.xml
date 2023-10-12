@@ -41,6 +41,16 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20230618</version>
+		</dependency>
+		<dependency>
 			<groupId>com.ibm.ecm</groupId>
 			<artifactId>navigator-api</artifactId>
 			<version>3.0</version>
@@ -67,20 +77,6 @@
 			<version>3.7.2.2-20171018.171314-4</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/faspex/faspmanager-3.7.2.2-20171018.171314-4.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>com.google</groupId>
-			<artifactId>gjson</artifactId>
-			<version>2.7</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/faspex/gson-2.7.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20230227</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/faspex/json-20160810.jar</systemPath>
 		</dependency>
 	</dependencies>
 	<build>

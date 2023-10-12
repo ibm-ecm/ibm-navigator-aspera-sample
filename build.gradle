@@ -43,12 +43,12 @@ dependencies {
 	compile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
 	compile group: 'commons-configuration', name: 'commons-configuration', version:'1.10'
 	compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
+	compile group: 'com.google.code.gson', name: 'gson', version:'2.10.1'
+	compile group: 'org.json', name: 'json', version:'20230618'
 	compile files("${projectDir}/lib/icn/navigatorAPI.jar")
 	compile files("${projectDir}/lib/icn/Jace.jar")
 	compile files("${projectDir}/lib/faspex/faspex-client-lite-1.0.2.jar")
 	compile files("${projectDir}/lib/faspex/faspmanager-3.7.2.2-20171018.171314-4.jar")
-	compile files("${projectDir}/lib/faspex/gson-2.7.jar")
-	compile files("${projectDir}/lib/faspex/json-20160810.jar")
 }
 
 jar {
