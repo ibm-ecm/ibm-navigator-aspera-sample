@@ -44,7 +44,7 @@ dependencies {
 	compile group: 'commons-configuration', name: 'commons-configuration', version:'1.10'
 	compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
 	compile group: 'com.google.code.gson', name: 'gson', version:'2.10.1'
-	compile group: 'org.json', name: 'json', version:'20230618'
+	compile group: 'org.json', name: 'json', version:'20231013'
 	compile files("${projectDir}/lib/icn/navigatorAPI.jar")
 	compile files("${projectDir}/lib/icn/Jace.jar")
 	compile files("${projectDir}/lib/faspex/faspex-client-lite-1.0.2.jar")
